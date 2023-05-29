@@ -1,4 +1,7 @@
 import React from "react";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+import { faSearch, faUsers, faComment } from "@fortawesome/free-solid-svg-icons"
+
 import {Container, Row, Col, Button } from "react-bootstrap";
 import LogoWhite from "../../assets/png/logo-white.png";
 import LogoBlue from "../../assets/png/logo.png";
@@ -22,13 +25,16 @@ function SideBarLeft() {
 
             <div>
                 <h2>
-                    - Text 1 ...
+                    <FontAwesomeIcon icon={faSearch}/>
+                    Sigue lo que te interesa.
                 </h2>
                 <h2>
-                    - text 2 ...
+                    <FontAwesomeIcon icon={faUsers}/>
+                    Entérate de que esta hablando la gente.
                 </h2>
                 <h2>
-                    - text 3 ...
+                    <FontAwesomeIcon icon={faComment}/>
+                    Únete a la conversación
                 </h2>
             </div>
         </Col>

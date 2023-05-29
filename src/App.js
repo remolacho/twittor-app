@@ -8,7 +8,6 @@ function App() {
         <div>
             {user ? (
                 <h1>No logueado...</h1>
-
             ) : (
                 <SignInSignUp />
             )}
