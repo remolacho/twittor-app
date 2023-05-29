@@ -1,11 +1,19 @@
 import React, {useState} from "react"
+import SignInSignUp from "./pages/SignInSignUp"
 
 function App() {
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState(    {user: {
+            name: "Jonathan"
+        }
+    })
 
     return (
         <div>
-            {user ? <h1>Estas loguado</h1> : <h1>No estas logueado</h1>}
+            {user ? (
+                <SignInSignUp />
+            ) : (
+               <h1>No logueado...</h1>
+            )}
         </div>
     )
 }
