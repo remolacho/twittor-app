@@ -34,7 +34,7 @@ function SideBarLeft() {
                 </h2>
                 <h2>
                     <FontAwesomeIcon icon={faComment}/>
-                    Únete a la conversación
+                    Únete a la conversación.
                 </h2>
             </div>
         </Col>
@@ -44,7 +44,19 @@ function SideBarLeft() {
 function RightComponent() {
     return (
         <Col className="signIn-signUp__right" xs={6}>
-            <h2>ComponentRight...</h2>
+            <div>
+                <img src={LogoWhite} alt="Twittor"/>
+                <h2>Mira lo que esta pasando en este momento</h2>
+                <h3>Unete a Twittor ahora mismo.</h3>
+
+                <Button variant="primary">
+                    Registrate
+                </Button>
+
+                <Button variant="outline-primary">
+                    Iniciar Sesion
+                </Button>
+            </div>
         </Col>
     )
 }
