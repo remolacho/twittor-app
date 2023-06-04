@@ -1,8 +1,9 @@
 import React, {useState} from "react";
 import {Row, Col, Form, Button, Spinner} from "react-bootstrap";
+import {signUp} from "../../../services/users/signUp"
 import {toast} from "react-toastify"
 import {validFormSignUp} from "../../../utils/validations/signUp"
-import "./SingUpForm.scss"
+import "./SignUpForm.scss"
 
 function initialUserAttributes(){
     return {
@@ -14,22 +15,37 @@ function initialUserAttributes(){
     }
 }
 
-export default function SingUpForm(props){
+export default function SignUpForm(props){
     const {setShowModal} = props
     const [formData, setFormData] = useState(initialUserAttributes())
+    const [signUpLoading, setSignUpLoading] = useState(false)
 
     const onSubmit = e => {
         e.preventDefault();
 
-        const signUp = validFormSignUp(formData);
+        const signUpValidation = validFormSignUp(formData);
 
-        if (!signUp.isValid){
-            toast.warning(signUp.message, {theme: "colored"});
+        if (!signUpValidation.isValid){
+            toast.warning(signUpValidation.message, {theme: "colored"});
             return
         }
 
-        toast.success("Se completo con exito", {theme: "colored"});
-        setShowModal(false)
+        setSignUpLoading(true)
+
+        signUp(formData).then(response => {
+            if (!response.success) {
+                toast.warning(response.message, {theme: "colored"});
+                return null
+            }
+
+            toast.success("Se creo el usuario con exito", {theme: "colored"});
+            setShowModal(false)
+            setFormData(initialUserAttributes)
+        }).catch(() =>{
+            toast.error("Error del servidor", {theme: "colored"});
+        }).finally(() =>{
+            setSignUpLoading(false);
+        })
     }
 
     const onChance = e => {
@@ -94,7 +110,7 @@ export default function SingUpForm(props){
                 </Form.Group>
 
                 <Button variant="primary" type="submit">
-                    Registrarse
+                    {!signUpLoading ? "Registrarse" : <Spinner animation="border"/> }
                 </Button>
             </Form>
 

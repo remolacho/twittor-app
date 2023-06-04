@@ -4,7 +4,7 @@ import { faSearch, faUsers, faComment } from "@fortawesome/free-solid-svg-icons"
 
 import {Container, Row, Col, Button } from "react-bootstrap";
 import BasicModal from "../../components/modals/BasicModal";
-import SingUpForm from "../../components/users/SingUpForm"
+import SignUpForm from "../../components/users/SignUpForm"
 import LogoWhite from "../../assets/png/logo-white.png";
 import LogoBlue from "../../assets/png/logo.png";
 import "./SignInSignUp.scss";
@@ -71,7 +71,7 @@ function RightComponent(props) {
 
                 <Button
                     variant="primary"
-                    onClick={() => openModal(<SingUpForm setShowModal={setShowModal}/>)}
+                    onClick={() => openModal(<SignUpForm setShowModal={setShowModal}/>)}
                 >
                     Registrate
                 </Button>
