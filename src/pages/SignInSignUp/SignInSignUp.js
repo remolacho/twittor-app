@@ -4,12 +4,14 @@ import { faSearch, faUsers, faComment } from "@fortawesome/free-solid-svg-icons"
 
 import {Container, Row, Col, Button } from "react-bootstrap";
 import BasicModal from "../../components/modals/BasicModal";
-import SignUpForm from "../../components/users/SignUpForm"
+import SignUpForm from "../../components/users/SignUpForm";
+import SignInForm from "../../components/users/SignInForm"
 import LogoWhite from "../../assets/png/logo-white.png";
 import LogoBlue from "../../assets/png/logo.png";
 import "./SignInSignUp.scss";
 
-function SignInSignUp(){
+function SignInSignUp(props){
+    const { setRefreshLogin } = props;
     const [showModal, setShowModal] = useState(false)
     const [contentModal, setContentModal] = useState(null)
 
@@ -24,8 +26,9 @@ function SignInSignUp(){
                 <Row>
                     <SideBarLeft/>
                     <RightComponent
-                      openModal={openModel}
-                      setShowModal={setShowModal}
+                        openModal={openModel}
+                        setShowModal={setShowModal}
+                        setRefreshLogin={setRefreshLogin}
                     />
                 </Row>
             </Container>
@@ -60,7 +63,7 @@ function SideBarLeft() {
 }
 
 function RightComponent(props) {
-    const {openModal, setShowModal} = props
+    const {openModal, setShowModal, setRefreshLogin} = props
 
     return (
         <Col className="signIn-signUp__right" xs={6}>
@@ -78,7 +81,7 @@ function RightComponent(props) {
 
                 <Button
                     variant="outline-primary"
-                    onClick={() => openModal(<h2>Formulario de login</h2>)}
+                    onClick={() => openModal(<SignInForm setRefreshLogin={setRefreshLogin}/>)}
                 >
                     Iniciar Sesion
                 </Button>
