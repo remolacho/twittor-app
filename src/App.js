@@ -2,7 +2,8 @@ import React, {useState, useEffect} from "react"
 import SignInSignUp from "./pages/SignInSignUp"
 import {ToastContainer} from "react-toastify"
 import {AuthContext} from "./utils/contexts"
-import {isExpiredToken, isUserLoggedApi} from "./services/users/auth";
+import {isUserLoggedApi} from "./services/users/auth";
+import Routing from "./routers/Routing";
 
 function App() {
     const [user, setUser] = useState(null);
@@ -19,7 +20,7 @@ function App() {
 
     return (
         <AuthContext.Provider value={user}>
-            { user ? <h1>Estas logueado...</h1> : <SignInSignUp setRefreshLogin={setRefreshLogin}/> }
+            { user ? <Routing/> : <SignInSignUp setRefreshLogin={setRefreshLogin}/> }
 
             <ToastContainer
                 position="top-right"
