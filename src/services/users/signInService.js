@@ -1,12 +1,12 @@
 import {API_HOST, V1_API} from "../../utils/variablesApi"
 
-export function signUp(formData) {
-    const url = `${API_HOST}/${V1_API}/users/sign-up`;
+export function signInService(formData) {
+    const url = `${API_HOST}/${V1_API}/users/sign-in`;
     const user = parseUser(formData);
 
     return fetch(url, params(user)).then(response => {
-        if (response.status === 400){
-            return { success: false, message: "El usuario ya existe" };
+        if (response.status === 403){
+            return { success: false, message: "Usuario o contraseña no valido" };
         }
 
         return response.json();
@@ -18,15 +18,10 @@ export function signUp(formData) {
 }
 
 function parseUser(formData) {
-    const user = {
+    return {
         ...formData,
         email: formData.email.toLowerCase(),
-        birthday: new Date(),
     };
-
-    delete user.repeatPassword;
-
-    return user;
 }
 
 function params(user) {

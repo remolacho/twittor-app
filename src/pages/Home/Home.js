@@ -7,7 +7,7 @@ export default function Home(props){
 
     return (
         <MainLayout setRefreshLogin={setRefreshLogin} className="home">
-            <h2>Estas en el home...</h2>
+            <span>Estas en el home...</span>
         </MainLayout>
     )
 }

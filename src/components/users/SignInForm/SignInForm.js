@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {Form, Button, Spinner} from "react-bootstrap";
 import {validFormSignIn} from "../../../utils/validations/signIn"
-import {signIn} from "../../../services/users/signIn"
+import {signInService} from "../../../services/users/signInService"
 import {toast} from "react-toastify"
 import {setTokenApi} from "../../../services/users/auth"
 import "./SignInForm.scss"
@@ -34,7 +34,7 @@ export default function SignInForm(props){
 
         setSignInLoading(true)
 
-        signIn(formData).then(response => {
+        signInService(formData).then(response => {
             if (!response.success) {
                 toast.warning(response.message, {theme: "colored"});
                 return null
