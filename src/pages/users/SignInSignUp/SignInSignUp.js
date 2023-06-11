@@ -3,11 +3,11 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import { faSearch, faUsers, faComment } from "@fortawesome/free-solid-svg-icons"
 
 import {Container, Row, Col, Button } from "react-bootstrap";
-import BasicModal from "../../components/modals/BasicModal";
-import SignUpForm from "../../components/users/SignUpForm";
-import SignInForm from "../../components/users/SignInForm"
-import LogoWhite from "../../assets/png/logo-white.png";
-import LogoBlue from "../../assets/png/logo.png";
+import BasicModal from "../../../components/modals/BasicModal";
+import SignUpForm from "../../../components/users/SignUpForm";
+import SignInForm from "../../../components/users/SignInForm"
+import LogoWhite from "../../../assets/png/logo-white.png";
+import LogoBlue from "../../../assets/png/logo.png";
 import "./SignInSignUp.scss";
 
 function SignInSignUp(props){
