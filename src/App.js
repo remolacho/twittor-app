@@ -20,7 +20,7 @@ function App() {
 
     return (
         <AuthContext.Provider value={user}>
-            { user ? <Routing/> : <SignInSignUp setRefreshLogin={setRefreshLogin}/> }
+            { user ? <Routing setRefreshLogin={setRefreshLogin} /> : <SignInSignUp setRefreshLogin={setRefreshLogin}/> }
 
             <ToastContainer
                 position="top-right"
