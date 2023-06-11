@@ -5,7 +5,7 @@ export function setTokenApi(token){
     localStorage.setItem(JWT, token);
 }
 
-export function isUserLoggedApi(){
+export function userLoggedApi(){
     const token = getTokenApi()
 
     if (!token){
