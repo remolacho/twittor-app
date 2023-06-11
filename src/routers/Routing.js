@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Route, Routes  } from "react-router-dom";
 import { map } from "lodash";
 import configRouting from "./configRouting"
 
-export default function Routing(){
+export default function Routing(props){
+    const { setRefreshLogin } = props
+
     return (
         <Router>
             <Routes>
@@ -11,7 +13,7 @@ export default function Routing(){
                     <Route key={index}
                            path={route.path}
                            exact={route.exact}
-                           element={<route.page />}>
+                           element={<route.page setRefreshLogin={setRefreshLogin} />}>
                     </Route>
                 ))}
             </Routes>
