@@ -3,10 +3,10 @@ import MainLayout from "../../layouts/MainLayout";
 import "./Home.scss";
 
 export default function Home(props){
-    const { setRefreshLogin } = props;
+    const { setCallLogin } = props;
 
     return (
-        <MainLayout setRefreshLogin={setRefreshLogin} className="home">
+        <MainLayout setCallLogin={setCallLogin} className="home">
             <span>Estas en el home...</span>
         </MainLayout>
     )

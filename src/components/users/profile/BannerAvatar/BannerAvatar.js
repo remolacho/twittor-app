@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import AvatarAlt from "../../../assets/jpg/avatar.jpg"
+import React from "react";
+import AvatarAlt from "../../../../assets/jpg/avatar.jpg"
 import "./BannerAvatar.scss"
 import ActionsProfile from "../ActionsProfile";
 

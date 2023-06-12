@@ -8,13 +8,13 @@ import Routing from "./routers/Routing";
 function App() {
     const [currentUser, setCurrentUser] = useState(null);
     const [loadUser, setLoadUser] = useState(false);
-    const [refreshLogin, setRefreshLogin] = useState(false);
+    const [callLogin, setCallLogin] = useState(false);
 
     useEffect(() => {
         setCurrentUser(userLoggedApi());
         setLoadUser(true);
-        setRefreshLogin(false);
-    }, [refreshLogin])
+        setCallLogin(false);
+    }, [callLogin])
 
     if (!loadUser) return null;
 
@@ -22,9 +22,9 @@ function App() {
         <AuthContext.Provider value={currentUser}>
             {
                 currentUser ?
-                    <Routing setRefreshLogin={setRefreshLogin} />
+                    <Routing setCallLogin={setCallLogin} callLogin={callLogin}/>
                 :
-                    <SignInSignUp setRefreshLogin={setRefreshLogin}/>
+                    <SignInSignUp setCallLogin={setCallLogin}/>
             }
 
             <ToastContainer

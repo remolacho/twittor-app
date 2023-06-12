@@ -10,12 +10,12 @@ import userLogged from "../../../hooks/users/userLogged"
 import "./LeftMenu.scss";
 
 export default function LeftMenu(props) {
-    const { setRefreshLogin } = props;
+    const { setCallLogin } = props;
     const currentUser = userLogged();
 
     const logout = () =>{
         logoutUser();
-        setRefreshLogin(true);
+        setCallLogin(true);
     }
 
      return (

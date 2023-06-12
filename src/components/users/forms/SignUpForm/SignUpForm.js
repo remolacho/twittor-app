@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import {Row, Col, Form, Button, Spinner} from "react-bootstrap";
-import {signUpService} from "../../../services/users/signUpService"
+import {signUpService} from "../../../../services/users/signUpService"
 import {toast} from "react-toastify"
-import {validFormSignUp} from "../../../utils/validations/signUp"
+import {validFormSignUp} from "../../../../utils/validations/signUp"
 import "./SignUpForm.scss"
 
 function initialUserAttributes(){
