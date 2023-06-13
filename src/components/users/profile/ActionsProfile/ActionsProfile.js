@@ -4,13 +4,13 @@ import ConfigModal from "../../../../components/modals/ConfigModal"
 import EditUserForm from "../../forms/EditUserForm";
 
 export default function ActionsProfile(props){
-    const { user, currentUser, className } = props;
+    const { profile, currentUser, className } = props;
     const [showModal, setShowModal] = useState(false);
 
-    if (!user) return null
+    if (!profile?.user) return null
 
-    const canEdit = currentUser?._id === user.id;
-    const canFollow = currentUser?._id !== user.id
+    const canEdit = currentUser?._id === profile.user.id;
+    const canFollow = currentUser?._id !== profile.user.id
 
     return(
         <div className={className}>
@@ -31,7 +31,7 @@ export default function ActionsProfile(props){
                 setShow={setShowModal}
                 title="Editar perfil">
 
-                <EditUserForm user={user} setShowModal={setShowModal}/>
+                <EditUserForm profile={profile} setShowModal={setShowModal}/>
 
             </ConfigModal>
         </div>
