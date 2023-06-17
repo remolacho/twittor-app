@@ -9,9 +9,10 @@ import {toast} from "react-toastify";
 import {uploadImageService} from "../../../../services/users/uploadImageService";
 import {validFormProfile} from "../../../../utils/validations/profile";
 import {updateService} from "../../../../services/users/updateServise";
+import {uniqueTimestamp} from  "../../../../utils/shared";
+import {API_HOST, V1_API} from "../../../../utils/variablesApi";
 
 import "./EditUserForm.scss"
-import {API_HOST, V1_API} from "../../../../utils/variablesApi";
 
 function attributes(){
     return  {
@@ -44,7 +45,7 @@ export default function EditUserForm(props){
     const [bannerFile, setBannerFile] = useState(null);
     const [bannerUrl, setBannerUrl] = useState(
         profile
-            ? `${API_HOST}/${V1_API}/users/banner?userId=${profile?.user.id}`
+            ? `${API_HOST}/${V1_API}/users/banner?userId=${profile?.user.id}&timestamp=${uniqueTimestamp()}`
             : null
     );
 
@@ -64,7 +65,7 @@ export default function EditUserForm(props){
     const [avatarFile, setAvatarFile] = useState(null);
     const [avatarUrl, setAvatarUrl] = useState(
         profile ?
-            `${API_HOST}/${V1_API}/users/avatar?userId=${profile?.user.id}`
+            `${API_HOST}/${V1_API}/users/avatar?userId=${profile?.user.id}&timestamp=${uniqueTimestamp()}`
             : null
     );
 
