@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import {Row, Col, Form, Button, Spinner} from "react-bootstrap";
-import {signUp} from "../../../services/users/signUp"
+import {signUpService} from "../../../../services/users/signUpService"
 import {toast} from "react-toastify"
-import {validFormSignUp} from "../../../utils/validations/signUp"
+import {validFormSignUp} from "../../../../utils/validations/signUp"
 import "./SignUpForm.scss"
 
 function initialUserAttributes(){
@@ -32,7 +32,7 @@ export default function SignUpForm(props){
 
         setSignUpLoading(true)
 
-        signUp(formData).then(response => {
+        signUpService(formData).then(response => {
             if (!response.success) {
                 toast.warning(response.message, {theme: "colored"});
                 return null

@@ -3,15 +3,15 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import { faSearch, faUsers, faComment } from "@fortawesome/free-solid-svg-icons"
 
 import {Container, Row, Col, Button } from "react-bootstrap";
-import BasicModal from "../../components/modals/BasicModal";
-import SignUpForm from "../../components/users/SignUpForm";
-import SignInForm from "../../components/users/SignInForm"
-import LogoWhite from "../../assets/png/logo-white.png";
-import LogoBlue from "../../assets/png/logo.png";
+import BasicModal from "../../../components/modals/BasicModal";
+import SignUpForm from "../../../components/users/forms/SignUpForm";
+import SignInForm from "../../../components/users/forms/SignInForm"
+import LogoWhite from "../../../assets/png/logo-white.png";
+import LogoBlue from "../../../assets/png/logo.png";
 import "./SignInSignUp.scss";
 
 function SignInSignUp(props){
-    const { setRefreshLogin } = props;
+    const { setCallLogin } = props;
     const [showModal, setShowModal] = useState(false)
     const [contentModal, setContentModal] = useState(null)
 
@@ -28,7 +28,7 @@ function SignInSignUp(props){
                     <RightComponent
                         openModal={openModel}
                         setShowModal={setShowModal}
-                        setRefreshLogin={setRefreshLogin}
+                        setCallLogin={setCallLogin}
                     />
                 </Row>
             </Container>
@@ -63,7 +63,7 @@ function SideBarLeft() {
 }
 
 function RightComponent(props) {
-    const {openModal, setShowModal, setRefreshLogin} = props
+    const {openModal, setShowModal, setCallLogin} = props
 
     return (
         <Col className="signIn-signUp__right" xs={6}>
@@ -81,7 +81,7 @@ function RightComponent(props) {
 
                 <Button
                     variant="outline-primary"
-                    onClick={() => openModal(<SignInForm setRefreshLogin={setRefreshLogin}/>)}
+                    onClick={() => openModal(<SignInForm setCallLogin={setCallLogin}/>)}
                 >
                     Iniciar Sesion
                 </Button>

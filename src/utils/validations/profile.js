@@ -5,16 +5,11 @@ let result = {
     message: "",
 }
 
-export function validFormSignIn(data){
+export function validFormProfile(data){
     result.isValid = false;
 
     if (!isValidFields(data)){
         result.message = "Todos los campos son obligatorios";
-        return result;
-    }
-
-    if (!isEmailValid(data)){
-        result.message = "El correo es invalido";
         return result;
     }
 
@@ -32,9 +27,4 @@ function isValidFields(data){
     });
 
     return validCount === sizeFields
-}
-
-function isEmailValid(data) {
-    const emailValid = /^([a-zA-Z0-9_.])+@(([a-zA-Z0-9])+\.)+([a-zA-Z0-9]{2,4})+$/;
-    return emailValid.test(String(data.email).toLowerCase())
 }

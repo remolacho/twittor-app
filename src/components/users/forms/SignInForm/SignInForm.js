@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import {Form, Button, Spinner} from "react-bootstrap";
-import {validFormSignIn} from "../../../utils/validations/signIn"
-import {signIn} from "../../../services/users/signIn"
+import {validFormSignIn} from "../../../../utils/validations/signIn"
+import {signInService} from "../../../../services/users/signInService"
 import {toast} from "react-toastify"
-import {setTokenApi} from "../../../services/users/auth"
+import {setTokenApi} from "../../../../services/users/auth"
 import "./SignInForm.scss"
 
 function initialLoginAttributes(){
@@ -14,7 +14,7 @@ function initialLoginAttributes(){
 }
 
 export default function SignInForm(props){
-    const { setRefreshLogin } = props;
+    const { setCallLogin } = props;
     const [formData, setFormData] = useState(initialLoginAttributes())
     const [signInLoading, setSignInLoading] = useState(false)
 
@@ -34,7 +34,7 @@ export default function SignInForm(props){
 
         setSignInLoading(true)
 
-        signIn(formData).then(response => {
+        signInService(formData).then(response => {
             if (!response.success) {
                 toast.warning(response.message, {theme: "colored"});
                 return null
@@ -43,7 +43,7 @@ export default function SignInForm(props){
             setTokenApi(response.data.token);
             toast.success("Inicio con exito", {theme: "colored"});
             setFormData(initialLoginAttributes);
-            setRefreshLogin(true);
+            setCallLogin(true);
         }).catch(() =>{
             toast.error("Error del servidor", {theme: "colored"});
         }).finally(() =>{
