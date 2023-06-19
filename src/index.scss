@@ -39,10 +39,10 @@ code {
 }
 
 input.form-control, textarea.form-control {
-  background-color: $background-dark-light;
-  border-radius: 0;
-  border: 0;
-  border-bottom: 1px solid $border-grey;
+  background-color: $background-dark-light !important;
+  border-radius: 0 !important;
+  border: 0 !important;
+  border-bottom: 1px solid $border-grey !important;
   color: $font-light !important;
 
   &:focus{

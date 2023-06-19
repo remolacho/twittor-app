@@ -8,6 +8,7 @@ import userLogged from "../../../hooks/users/userLogged"
 import InfoUser from "../../../components/users/profile/InfoUser";
 
 import "./Profile.scss";
+import ListTweets from "../../../components/tweets/ListTweets";
 
 export default function Profile(props){
     const {callLogin, setCallLogin} = props;
@@ -36,9 +37,10 @@ export default function Profile(props){
             <div className="profile__title">
                <h2>{profile?.user?.name} {profile?.user?.lastname}</h2>
             </div>
+
             <BannerAvatar profile={profile} currentUser={currentUser} />
             <InfoUser user={profile?.user} />
-            <div className="profile__tweets">Lista de tweets</div>
+            <ListTweets profile={profile}/>
         </MainLayout>
     )
 }
