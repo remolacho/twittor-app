@@ -1,0 +1,18 @@
+@import "../../../../scss/index";
+
+button{
+  &.unFollow{
+    &:hover{
+      border-color: $danger;
+      background-color: $danger !important;
+
+      &::before{
+        content: "Dejar de seguir";
+      }
+
+      span{
+        display: none;
+      }
+    }
+  }
+}
