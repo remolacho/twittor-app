@@ -48,6 +48,7 @@
     svg{
       width: 30px;
       fill: $font-light;
+
       &:hover{
         fill: $font-dark;
       }
@@ -58,12 +59,12 @@
     padding: 0 20px 20px 20px;
 
     .btn-submit{
-      position: absolute;
-      top: -44px;
-      right: 25px;
+      width: 100%;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 10px;
       border-radius: 50px;
-      font-size: 16px;
-      padding: 4px 15px 4px 15px;
+      margin-top: 30px;
     }
 
     .form-control{
@@ -75,5 +76,4 @@
       margin-top: 25px !important;
     }
   }
-
 }

@@ -1,30 +1,17 @@
 import React from "react";
-import {Modal} from "react-bootstrap";
-import {CloseIcon} from "../../../utils/icons"
-
-import "./TweetModal.scss";
-import CreateTweetForm from "../../tweets/forms/CreateForm";
+import CreateTweetForm from "../../tweets/forms/CreateTweetForm";
+import ConfigModal from "../ConfigModal";
 
 function TweetModal(props) {
-    const {show, setShow, setCallLogin} = props;
+    const {show, setShow} = props;
 
     return(
-        <Modal
-            className="tweet-modal"
+        <ConfigModal
             show={show}
-            onHide={() => setShow(false)}
-            centered
-            size="lg">
-            <Modal.Header>
-                <Modal.Title>
-                    <CloseIcon onClick={() => setShow(false)} />
-                    <h2>Que estas pensando?</h2>
-                </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <CreateTweetForm setShow={setShow}/>
-            </Modal.Body>
-        </Modal>
+            setShow={setShow}
+            title="Que estas pensando?">
+            <CreateTweetForm setShow={setShow}/>
+        </ConfigModal>
     )
 }
 
