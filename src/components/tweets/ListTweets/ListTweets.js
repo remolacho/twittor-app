@@ -4,6 +4,7 @@ import { listTweetsUserService } from "../../../services/tweets/listTweetsUserSe
 import Tweet from "../Tweet";
 import { map } from "lodash"
 import { Button, Spinner } from "react-bootstrap";
+import {LIMIT_PAGE} from "../../../utils/variablesApi";
 
 import "./ListTweets.scss"
 
@@ -14,7 +15,6 @@ export default function ListTweets(props){
     const [numPage, setNumPage] = useState(1);
     const [loading, setLoading] = useState(false);
     const [showBtnTweets, setShowBtnTweets] = useState(false);
-    const limitByPage = 20;
 
     useEffect(()=>{
         if(!profile?.user) return;
@@ -25,11 +25,10 @@ export default function ListTweets(props){
                 return
             }
 
-            setShowBtnTweets(response.data.length === limitByPage);
+            setShowBtnTweets(response.data.length === LIMIT_PAGE);
             setTweets([...tweets, ...response.data]);
             setLoading(false);
         }).catch(() => {
-            toast.error("Error al cargar los datos", {theme: "colored"})
             setShowBtnTweets(false);
             setLoading(false);
         })
@@ -54,7 +53,7 @@ export default function ListTweets(props){
             <h3>Tweets</h3>
             <div>
                 {map(tweets, (tweet) => {
-                   return <Tweet tweet={tweet} user={profile?.user}/>
+                   return <Tweet key={tweet.id} tweet={tweet} user={profile?.user}/>
                 })}
             </div>
 
