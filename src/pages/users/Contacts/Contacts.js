@@ -89,7 +89,7 @@ function Contacts(props) {
 
             <TabsContact changeTab={changeTab} type={type} />
             <ListContacts contacts={contacts} loading={loading}/>
-            { showBtnLoad && <Button onClick={moreContacts}>Cargar mas</Button> }
+            { showBtnLoad && <Button className="contacts__btn-load" onClick={moreContacts}>Cargar mas</Button> }
         </MainLayout>
     )
 }

@@ -1,5 +1,7 @@
 import React from "react";
 import MainLayout from "../../layouts/MainLayout";
+import ListTweets from "../../components/tweets/ListTweets";
+
 import "./Home.scss";
 
 export default function Home(props){
@@ -7,7 +9,7 @@ export default function Home(props){
 
     return (
         <MainLayout setCallLogin={setCallLogin} className="home">
-            <span>Estas en el home...</span>
+            <ListTweets type="all"/>
         </MainLayout>
     )
 }
