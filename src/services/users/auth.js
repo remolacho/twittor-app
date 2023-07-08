@@ -5,12 +5,8 @@ export function setTokenApi(token){
     localStorage.setItem(JWT, token);
 }
 
-export function isUserLoggedApi(){
+export function userLoggedApi(){
     const token = getTokenApi()
-
-    if (!token){
-        return null
-    }
 
     if (isExpiredToken(token)){
        return logoutUser();
@@ -29,6 +25,8 @@ export function logoutUser(){
 }
 
 export function isExpiredToken(token){
+    if (!token) return true
+
     const { exp } = jwtDecode(token);
     const expired = exp * 1000;
     const timeOut = expired - Date.now();

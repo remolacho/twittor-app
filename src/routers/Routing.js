@@ -4,7 +4,7 @@ import { map } from "lodash";
 import configRouting from "./configRouting"
 
 export default function Routing(props){
-    const { setRefreshLogin } = props
+    const { callLogin, setCallLogin } = props
 
     return (
         <Router>
@@ -13,7 +13,7 @@ export default function Routing(props){
                     <Route key={index}
                            path={route.path}
                            exact={route.exact}
-                           element={<route.page setRefreshLogin={setRefreshLogin} />}>
+                           element={<route.page setCallLogin={setCallLogin} callLogin={callLogin} />}>
                     </Route>
                 ))}
             </Routes>

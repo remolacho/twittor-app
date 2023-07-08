@@ -1,0 +1,43 @@
+@import "../../../scss/index";
+
+.contacts{
+  &__title{
+    padding: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h2{
+      font-size: 22px;
+      margin-bottom: 0;
+      font-weight: bold;
+    }
+
+    input{
+      width: 50%;
+      border-radius: 50px;
+      border: 0;
+      background-color: $background-dark-light;
+      padding: 5px 20px;
+      color: $font-light;
+      font-size: 24px;
+
+      &:focus{
+        outline: none;
+      }
+    }
+  }
+
+  &__btn-load{
+    margin-left: 30px;
+    border-radius: 50px;
+    background-color: $background-dark-light !important;
+    width: 95%;
+    border: 0 !important;
+    &:hover{
+      background-color: transparent !important;
+      color: $primary;
+    }
+  }
+}

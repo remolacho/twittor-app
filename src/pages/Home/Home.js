@@ -1,13 +1,15 @@
 import React from "react";
 import MainLayout from "../../layouts/MainLayout";
+import ListTweets from "../../components/tweets/ListTweets";
+
 import "./Home.scss";
 
 export default function Home(props){
-    const { setRefreshLogin } = props;
+    const { setCallLogin } = props;
 
     return (
-        <MainLayout setRefreshLogin={setRefreshLogin} className="home">
-            <h2>Estas en el home...</h2>
+        <MainLayout setCallLogin={setCallLogin} className="home">
+            <ListTweets type="all"/>
         </MainLayout>
     )
 }
