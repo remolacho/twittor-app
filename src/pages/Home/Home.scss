@@ -1,4 +1,14 @@
 @import "../../scss/index";
 
 .home{
+  &__title{
+    border-bottom: 1px solid $border-grey;
+    padding: 15px;
+
+    h2{
+      font-size: 22px !important;
+      margin-bottom: 0 !important;
+      font-weight: bold !important;
+    }
+  }
 }

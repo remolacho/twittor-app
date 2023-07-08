@@ -40,7 +40,7 @@ export default function Profile(props){
 
             <BannerAvatar profile={profile} currentUser={currentUser} />
             <InfoUser user={profile?.user} />
-            <ListTweets profile={profile}/>
+            <ListTweets user={profile?.user} type="profile"/>
         </MainLayout>
     )
 }

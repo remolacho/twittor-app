@@ -1,8 +1,16 @@
 import {API_HOST, V1_API} from "../../utils/variablesApi"
 import {getTokenApi} from "../users/auth";
 
-export function listTweetsUserService(userId, numPage){
-    const url = `${API_HOST}/${V1_API}/tweets?userId=${userId}&page=${numPage}`;
+function getUrl(type, userId, numPage){
+    if (type === "profile"){
+        return `${API_HOST}/${V1_API}/tweets?userId=${userId}&page=${numPage}`;
+    }
+
+    return `${API_HOST}/${V1_API}/followers/tweets?page=${numPage}`;
+}
+
+export function listTweetsService(type, userId, numPage){
+    const url = getUrl(type, userId, numPage)
 
     return fetch(url, params()).then(response => {
         if (response.status === 403){
